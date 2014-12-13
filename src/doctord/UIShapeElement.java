@@ -7,11 +7,6 @@ import org.newdawn.slick.geom.*;
 public class UIShapeElement extends UIElement {
 	private Shape shape;
 	private String id;
-<<<<<<< HEAD
-=======
-	private boolean highlighted = false;
-	public static final Color HIGHLIGHTED_COLOR = new Color(244,208,63);
->>>>>>> origin/master
 	
 	/*
 	 * @param align
@@ -33,14 +28,7 @@ public class UIShapeElement extends UIElement {
 	
 	@Override
 	public void render(Graphics g) {
-<<<<<<< HEAD
 		g.setColor(color);
-=======
-		if(!highlighted)
-			g.setColor(color);
-		else
-			g.setColor(HIGHLIGHTED_COLOR);
->>>>>>> origin/master
 		int delta = 0;
 		float shift = 0;
 		switch(align) {
@@ -96,15 +84,4 @@ public class UIShapeElement extends UIElement {
 	public String getId() {
 		return id;
 	}
-<<<<<<< HEAD
-=======
-
-	public void setHighlighted(boolean highlighted) {
-		this.highlighted = highlighted;
-	}
-
-	public boolean isHighlighted() {
-		return highlighted;
-	}
->>>>>>> origin/master
 }
