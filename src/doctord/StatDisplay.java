@@ -16,9 +16,9 @@ public class StatDisplay {
 	private final boolean debug = false;
 	private final String pauseMsg = "GAME PAUSED";
 	private final String playerMsg = "YOU DIED - PRESS R TO RESTART";
-	private Vector2f debugLocation = new Vector2f(500,500);
+	private final Vector2f debugLocation = new Vector2f(500,500);
 	private java.awt.Font UIFont1;
-    private UnicodeFont uniFont;
+    private final UnicodeFont uniFont;
 	
 	public static final Color darkGrey = new Color(40, 40 , 40, 200),
 			darkerGrey = new Color(0, 0, 0, 100),
@@ -29,7 +29,7 @@ public class StatDisplay {
 			dullYellow = new Color(244,208,63),
 			transparentBlack = new Color(0,0,0,200);
 	
-	private UIShapeElement[] elements = new UIShapeElement[] {
+	private final UIShapeElement[] elements = new UIShapeElement[] {
 			new UIShapeElement(new Rectangle(0,0,1920,54), darkGrey, 1),				// Top Bar 				darkGrey		0
 			new UIShapeElement(new Rectangle(0,1080-54,1920,54), darkGrey, 1),		// Bottom Bar			darkGrey		1
 			new UIShapeElement(new Rectangle(5,5,210,40), darkerGrey, 1),			// Fuel Background		darkerGrey		2
@@ -42,7 +42,7 @@ public class StatDisplay {
 			new UIShapeElement(new Rectangle(420,5,200,40), darkerGrey, -1),			// Collected Coins		darkerGrey		8
 	};
 	
-	private UIShapeElement[] pausedElements = new UIShapeElement[] {
+	private final UIShapeElement[] pausedElements = new UIShapeElement[] {
 			new UIShapeElement(new RoundedRectangle(500,540 - 30,500,40,10), transparentBlack, 0),
 	};
 	

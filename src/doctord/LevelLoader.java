@@ -22,8 +22,8 @@ import org.xml.sax.SAXException;
 
 public class LevelLoader {
 	private Player player;
-	private ArrayList<Pillar> pillars;
-	private ArrayList<Item> items;
+	private final ArrayList<Pillar> pillars;
+	private final ArrayList<Item> items;
 	
 	private boolean level_did_load;
 	private float gravity = (float)9.8;

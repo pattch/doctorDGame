@@ -34,7 +34,7 @@ public class LevelScene extends doctord.Scene {
 	private Animation background;
 	private boolean level_did_load;
 	private static boolean paused = false;
-	private StatDisplay HUD;
+	private final StatDisplay HUD;
 	private String levelName, filename;
 	private static String lname;
 	
@@ -218,10 +218,7 @@ public class LevelScene extends doctord.Scene {
 	}
 	
 	public void pause() {
-		if(!paused)
-			paused = true;
-		else
-			paused = false;
+        paused = !paused;
 	}
 	
 	public static boolean isPaused() {

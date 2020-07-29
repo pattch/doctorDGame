@@ -20,7 +20,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class UIElementBuilder {
-	private static ArrayList<UIElement> elements = new ArrayList<UIElement>();
+	private static final ArrayList<UIElement> elements = new ArrayList<UIElement>();
 	
 	public static ArrayList<UIElement> getElements() {
 		return elements;

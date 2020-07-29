@@ -24,17 +24,11 @@ public class GameConfig {
 			String s = sc.nextLine();
 			if(s.indexOf("FULLSCREEN:") != -1) {
 				s = s.substring(11);
-				if(s.indexOf("true") != -1)
-					fullscreen = true;
-				else
-					fullscreen = false;
+                fullscreen = s.indexOf("true") != -1;
 			}
 			if(s.indexOf("MUTED:") != -1) {
 				s = s.substring(6);
-				if(s.indexOf("true") != -1)
-					muted = true;
-				else
-					muted = false;
+                muted = s.indexOf("true") != -1;
 			}
 			if(s.indexOf("WIDTH:") != -1) {
 				s = s.substring(6);

@@ -22,7 +22,7 @@ import doctord.doctorDGame;
 
 public class PillarMaker extends BasicGame {
 	private String sprites_filepath;
-	private Pillar[] pillars;
+	private final Pillar[] pillars;
 	private boolean finished;
 
 	public PillarMaker(String title, int length) {

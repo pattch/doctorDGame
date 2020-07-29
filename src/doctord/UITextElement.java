@@ -13,8 +13,8 @@ import org.newdawn.slick.geom.Vector2f;
 public class UITextElement extends UIElement {
 	private static java.awt.Font UIFont1;
     private static UnicodeFont uniFont;
-    private String text;
-    private Vector2f location;
+    private final String text;
+    private final Vector2f location;
 	
     public UITextElement(String text, Vector2f location, Color color, int align) {
     	this.text = text;

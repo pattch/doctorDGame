@@ -10,7 +10,7 @@ import org.newdawn.slick.SlickException;
 
 public class ImagePool {
 	private static ImagePool single;
-	private static TreeMap<String, Image> images = new TreeMap<String,Image>();
+	private static final TreeMap<String, Image> images = new TreeMap<String,Image>();
 	
 	private ImagePool() {}
 	

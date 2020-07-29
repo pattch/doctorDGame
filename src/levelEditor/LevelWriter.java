@@ -11,7 +11,7 @@ import org.newdawn.slick.geom.Vector2f;
 import doctord.*;
 
 public class LevelWriter {
-	private PrintWriter pw;
+	private final PrintWriter pw;
 	private Item[] items;
 	private Pillar[] pillars;
 	private Player player;
@@ -64,8 +64,8 @@ public class LevelWriter {
 		
 		pw.println(shortTag(LEVEL_NAME, levelName));
 		pw.println(shortTag(LEVEL_MUSIC, music));
-		pw.println(shortTag(LEVEL_GRAVITY, new String("") + gravity));
-		pw.println(shortTag(LEVEL_LENGTH, new String("") + length));
+		pw.println(shortTag(LEVEL_GRAVITY, "" + gravity));
+		pw.println(shortTag(LEVEL_LENGTH, "" + length));
 		writeAnimation(bg);
 		
 		if(items != null) {
@@ -97,7 +97,7 @@ public class LevelWriter {
 	// Actable Specific Code
 	private void writeAnimation(Animation animation) {
 		pw.println(openTag(animation));
-		pw.println(shortTag(IMAGECOUNT,new String("" + animation.getFrameCount())));
+		pw.println(shortTag(IMAGECOUNT, "" + animation.getFrameCount()));
 		
 		for(int i = 0; i < animation.getFrameCount(); i++) {
 			writeImage(animation.getImage(i));
@@ -117,8 +117,8 @@ public class LevelWriter {
 	private void writeLocation(Vector2f location) {
 		pw.println(openTag(location));
 		
-		pw.println(shortTag("X",new String("" + location.getX())));
-		pw.println(shortTag("Y",new String("" + location.getY())));
+		pw.println(shortTag("X", "" + location.getX()));
+		pw.println(shortTag("Y", "" + location.getY()));
 		
 		pw.println(closeTag(location));
 	}
@@ -127,8 +127,8 @@ public class LevelWriter {
 		pw.println(openTagWithType(ACTABLE,TYPE,a));
 		
 		if(a instanceof Player) {
-			pw.println(shortTag(PLAYER_HEALTH, new String("") + Player.getHealth()));
-			pw.println(shortTag(PLAYER_FUEL, new String("") + Player.getFuel()));
+			pw.println(shortTag(PLAYER_HEALTH, "" + Player.getHealth()));
+			pw.println(shortTag(PLAYER_FUEL, "" + Player.getFuel()));
 		}
 		if(a instanceof Pillar) {
 			String s = "";
@@ -141,17 +141,17 @@ public class LevelWriter {
 			pw.println(shortTag(PILLAR_BLOCKS_HIDDEN, s));
 		}
 		if(a instanceof PlayerShielder) {
-			pw.println(shortTag(PLAYER_SHIELDER_DURATION, new String("") + ((PlayerShielder)a).getDuration()));
+			pw.println(shortTag(PLAYER_SHIELDER_DURATION, "" + ((PlayerShielder)a).getDuration()));
 		}
 		if(a instanceof PlayerWarper) {
-			pw.println(shortTag(PLAYER_WARPER_DURATION, new String("") + ((PlayerWarper)a).getDuration()));
+			pw.println(shortTag(PLAYER_WARPER_DURATION, "" + ((PlayerWarper)a).getDuration()));
 		}
 		if(a instanceof PlayerRestorer) {
-			pw.println(shortTag(PLAYER_HEALTH, new String("") + ((PlayerRestorer)a).getHealth()));
-			pw.println(shortTag(PLAYER_FUEL, new String("") + ((PlayerRestorer)a).getFuel()));
+			pw.println(shortTag(PLAYER_HEALTH, "" + ((PlayerRestorer)a).getHealth()));
+			pw.println(shortTag(PLAYER_FUEL, "" + ((PlayerRestorer)a).getFuel()));
 		}
 		if(a instanceof Projectile) {
-			pw.println(shortTag(PROJECTILE_DAMAGE, new String("") + ((Projectile)a).getDamage()));
+			pw.println(shortTag(PROJECTILE_DAMAGE, "" + ((Projectile)a).getDamage()));
 		}
 		
 		writeAnimation(a.getAnimation());
@@ -162,7 +162,7 @@ public class LevelWriter {
 	
 	// BASIC XML FUNCTIONS
 	private String basicOpenTag(String s) {
-		String t = new String("");
+		String t = "";
 		for(int i =0; i < tab; i++) {
 			t += "\t";
 		}
@@ -171,7 +171,7 @@ public class LevelWriter {
 	}
 	
 	private String basicCloseTag(String s) {
-		String t = new String("");
+		String t = "";
 		tab--;
 		for(int i =0; i < tab; i++) {
 			t += "\t";

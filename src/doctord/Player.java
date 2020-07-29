@@ -8,7 +8,7 @@ import org.newdawn.slick.geom.Vector2f;
 
 
 public class Player extends Actor {
-	private Vector2f inertia;
+	private final Vector2f inertia;
 	private final float weight = 20, maxSpeed = 15;
 	private static final int MAX_HEALTH = 5;
 	private static final float MAX_FUEL = 200;
@@ -16,7 +16,8 @@ public class Player extends Actor {
 	private static float fuel;
 	private int effectDuration;
 	private static PlayerEffect currentEffect = PlayerEffect.NEUTRAL;
-	private Animation fall, jump;
+	private final Animation fall;
+    private Animation jump;
 //	private ControlHandler controls;
 
 	public Player(Animation sprites, Vector2f location, int health, float fuel) {

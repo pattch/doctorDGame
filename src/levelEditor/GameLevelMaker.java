@@ -143,7 +143,7 @@ public class GameLevelMaker extends BasicGame implements InputProviderListener {
 		
 		input = gc.getInput();
 		provider = new InputProvider(input);
-		provider.addListener((InputProviderListener) this);
+		provider.addListener(this);
 		
 		
 	}
@@ -312,7 +312,7 @@ public class GameLevelMaker extends BasicGame implements InputProviderListener {
 	@Override
 	public void mousePressed(int button, int x, int y) {}
 	
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		// Initialize Game and its Container
 		try {
 			AppGameContainer appgc;

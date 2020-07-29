@@ -16,10 +16,10 @@ import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
 
 public class CinematicScene extends Scene {
-	private ArrayList<Dialog> dialogs;
+	private final ArrayList<Dialog> dialogs;
 	private int currentDialog = 0, debounce = 0;
 	private java.awt.Font UIFont1;
-    private UnicodeFont uniFont;
+    private final UnicodeFont uniFont;
     private Music music;
 	
 	@SuppressWarnings("unchecked")

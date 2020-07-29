@@ -28,7 +28,9 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 	private InputProvider provider;
 	private Command debugCommand, exitCommand, fpsCommand, pauseCommand, muteCommand, restartCommand;
 	private boolean endGame = false, displayFPS = false;
-	private static boolean spaceDown = false, shooting = false, muted = false;
+	private static boolean spaceDown = false;
+	private static final boolean shooting = false;
+	private static boolean muted = false;
 	private boolean transitioning = false;
 	private int shadowTimer = 0;
 	private static int currentScene = 0;
@@ -86,7 +88,7 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 		loadScenes();
 		
 		provider = new InputProvider(gc.getInput());
-		provider.addListener((InputProviderListener) this);
+		provider.addListener(this);
 		
 		debugCommand = new BasicCommand("Debug Command");
 		exitCommand = new BasicCommand("Close the Game.");
@@ -147,11 +149,11 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 		if(com == exitCommand)
 			endGame = true;
 		if(com == fpsCommand)
-			displayFPS = (displayFPS) ? false : true;
+			displayFPS = !displayFPS;
 		if(com == pauseCommand && scenes[currentScene] instanceof LevelScene && Player.getHealth() > 0)
 			((LevelScene)scenes[currentScene]).pause();
 		if(com == muteCommand   )
-			muted = (muted) ? false: true;
+			muted = !muted;
 		if(com == restartCommand && scenes[currentScene] instanceof LevelScene) {
 			if(Player.getHealth() <= 0) {
 				scenes[currentScene] = new LevelScene();

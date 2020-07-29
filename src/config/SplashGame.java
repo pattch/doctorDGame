@@ -22,7 +22,8 @@ import doctord.UIShapeElement;
 public class SplashGame extends BasicGame {
 	private static final float width = 400f, height = 600f;
 	private DisplayMode[] displays;
-	private boolean fullscreen = true, startMain = false;
+	private final boolean fullscreen = true;
+    private boolean startMain = false;
 	private Image splashImage;
 	private Animation splashAnimation;
 	private ArrayList<UIElement> mainElements;

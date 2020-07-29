@@ -4,8 +4,8 @@ import org.newdawn.slick.geom.Vector2f;
 
 public class PlayerRestorer extends Item {
 
-	private int health;
-	private float fuel;
+	private final int health;
+	private final float fuel;
 	
 	
 	public PlayerRestorer( int h, float f, Animation a, Vector2f v) 

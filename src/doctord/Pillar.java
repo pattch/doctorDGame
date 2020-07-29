@@ -11,7 +11,7 @@ public class Pillar extends Actor implements Comparable {
 	public static final float 	PILLAR_WIDTH 	= (float)50.0;
 	public static final int		WAIT_TIME		= 50;
 	
-	private PillarBlock[] blocks = new PillarBlock[PILLAR_COUNT];
+	private final PillarBlock[] blocks = new PillarBlock[PILLAR_COUNT];
 	
 	public Pillar(Animation sprites, Vector2f location) {
 		super(sprites, location);

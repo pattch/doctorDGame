@@ -8,8 +8,8 @@ public class ControlHandler
 	  private static final float UP = (float)(-15.0);
 	  private static final float DOWN = (float)5.0;
 	  private float gravity;
-	  private Vector2f direction = new Vector2f(0,DOWN);
-	  private Vector2f velocity = new Vector2f(0,0);
+	  private final Vector2f direction = new Vector2f(0,DOWN);
+	  private final Vector2f velocity = new Vector2f(0,0);
 	  
 	  public void updateDirection()
 	  {

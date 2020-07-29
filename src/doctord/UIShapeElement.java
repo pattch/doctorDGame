@@ -5,7 +5,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.*;
 
 public class UIShapeElement extends UIElement {
-	private Shape shape;
+	private final Shape shape;
 	private String id;
 	
 	/*
