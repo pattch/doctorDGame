@@ -37,8 +37,6 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 	private static float vscale = 1.0f, hscale = 1.0f;
 	private static DisplayMode display = new DisplayMode(0,0);
 	
-	// Private Control Functions
-	
 	private static DisplayMode getDisplay(float width, float height) throws LWJGLException {
 		DisplayMode[] modes = Display.getAvailableDisplayModes();
 		DisplayMode display = new DisplayMode(0,0);
@@ -74,8 +72,8 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 	}
 	
 	// Necessary Slick2D Functions
-	public doctorDGame(String gamename) {
-		super(gamename);
+	public doctorDGame(String gameName) {
+		super(gameName);
 	}
 
 	@Override
@@ -108,12 +106,16 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 	@Override
 	public void update(GameContainer gc, int i) throws SlickException {
 		gc.setShowFPS(displayFPS);
-		if(muted)
+		if(muted) {
 			scenes[currentScene].silenceMusic();
-		else
+		}
+		else {
 			scenes[currentScene].unSilenceMusic();
-		if(endGame)
+		}
+
+		if(endGame) {
 			gc.exit();
+		}
 		
 		if(scenes[currentScene].isFinished()) {
 			if(!transitioning) {
@@ -143,18 +145,27 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 	}
 	
 	@Override
-	public void controlPressed(Command com) {
-		if(com == debugCommand)
+	public void controlPressed(Command command) {
+		if(command == debugCommand) {
 			spaceDown = true;
-		if(com == exitCommand)
+		}
+
+		if(command == exitCommand) {
 			endGame = true;
-		if(com == fpsCommand)
+		}
+
+		if(command == fpsCommand) {
 			displayFPS = !displayFPS;
-		if(com == pauseCommand && scenes[currentScene] instanceof LevelScene && Player.getHealth() > 0)
-			((LevelScene)scenes[currentScene]).pause();
-		if(com == muteCommand   )
+		}
+
+		if(command == pauseCommand && scenes[currentScene] instanceof LevelScene && Player.getHealth() > 0) {
+			((LevelScene) scenes[currentScene]).pause();
+		}
+		if(command == muteCommand) {
 			muted = !muted;
-		if(com == restartCommand && scenes[currentScene] instanceof LevelScene) {
+		}
+
+		if(command == restartCommand && scenes[currentScene] instanceof LevelScene) {
 			if(Player.getHealth() <= 0) {
 				scenes[currentScene] = new LevelScene();
 				((LevelScene)scenes[currentScene]).loadLevel(scenePaths[currentScene]);
@@ -164,13 +175,12 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 	}
 
 	@Override
-	public void controlReleased(Command com) {
-		if(com == debugCommand)
+	public void controlReleased(Command command) {
+		if(command == debugCommand) {
 			spaceDown = false;
+		}
 	}
 	
-	// Main Loop
-
 	public static void main(String[] args) {
 		try {
 			AppGameContainer appgc;
@@ -208,8 +218,6 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 			e.printStackTrace();
 		}
 	}
-	
-	// Accessors
 	
 	public static boolean spaceBarIsDown() {
 		return spaceDown;
