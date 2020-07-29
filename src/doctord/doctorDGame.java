@@ -39,7 +39,7 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 	
 	// Private Control Functions
 	
-	private static DisplayMode getdisplay(float width, float height) throws LWJGLException {
+	private static DisplayMode getDisplay(float width, float height) throws LWJGLException {
 		DisplayMode[] modes = Display.getAvailableDisplayModes();
 		DisplayMode display = new DisplayMode(0,0);
 		for (int i=0;i<modes.length;i++) {
@@ -183,11 +183,11 @@ public class doctorDGame extends BasicGame implements InputProviderListener {
 			if(splash.startMain()) {
 				appgc = new AppGameContainer(new doctorDGame("Doctor D"));
 				if(display.getWidth() == 0 && display.getHeight() == 0)
-					display = getdisplay(16,9);
+					display = getDisplay(16,9);
 				if(display.getWidth() == 0 && display.getHeight() == 0)
-					display = getdisplay(16,10);
+					display = getDisplay(16,10);
 				if(display.getWidth() == 0 && display.getHeight() == 0)
-					display = getdisplay(4,3);
+					display = getDisplay(4,3);
 				if(display.getWidth() == 0 && display.getHeight() == 0) {
 					display = new DisplayMode(640,360);
 					vscale = (float)display.getHeight()/1080;
